@@ -2,8 +2,21 @@ import Header from "./Layout/Header";
 import PageSummary from "./UI/PageSummary";
 import Store from "./Components/Store/Store";
 import Footer from "./Layout/Footer";
+import Cart from "./Components/Cart/Cart";
+import { useState } from "react";
 
 function App() {
+  const [cartClicked, setCartClicked] = useState(false);
+  const cartDisplayHandler = ()=>
+  {
+    setCartClicked(true)
+  }
+
+  const cartDisplayHider = ()=>
+  {
+    setCartClicked(false)
+  }
+
 
   const productsArr = [
 
@@ -55,10 +68,12 @@ function App() {
     ]
   return (
     <>
-      <Header></Header>
+      <Header onClose = {cartDisplayHandler}></Header>
       <PageSummary></PageSummary>
       <Store storeItems = {productsArr}></Store>
       <Footer></Footer>
+      {cartClicked&& <Cart onClose={cartDisplayHider}></Cart>}
+     
     </>
 
   );

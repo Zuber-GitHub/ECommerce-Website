@@ -11,7 +11,7 @@ const Footer = (props)=>{
             <div className="images">
                 <a href="https://www.youtube.com/" target='blank'><img src={youtubeImage}  alt="Youtube Logo" className="youtube"/></a>
                 <a href="https://www.facebook.com/" target='blank'><img src={spotifyImage} alt="Spotify logo" className="spotify" /></a>
-                <a><img src={facebookImage} alt="Facebook Logo" className="facebook" /></a>
+                <a href="www.facebook.com"><img src={facebookImage} alt="Facebook Logo" className="facebook" /></a>
             </div>
         </div>
     )
