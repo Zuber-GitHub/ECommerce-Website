@@ -4,6 +4,7 @@ import Store from "./Components/Store/Store";
 import Footer from "./Layout/Footer";
 import Cart from "./Components/Cart/Cart";
 import { useState } from "react";
+import CartProvider from "./Components/Context/CartProvider";
 
 function App() {
   const [cartClicked, setCartClicked] = useState(false);
@@ -16,6 +17,10 @@ function App() {
   {
     setCartClicked(false)
   }
+
+  
+
+
 
 
   const productsArr = [
@@ -66,15 +71,18 @@ function App() {
     }
     
     ]
+    
+
+  
   return (
-    <>
+    <CartProvider>
       <Header onClose = {cartDisplayHandler}></Header>
       <PageSummary></PageSummary>
-      <Store storeItems = {productsArr}></Store>
+      <Store storeItems = {productsArr} ></Store>
       <Footer></Footer>
       {cartClicked&& <Cart onClose={cartDisplayHider}></Cart>}
-     
-    </>
+      </CartProvider>
+      
 
   );
 }
