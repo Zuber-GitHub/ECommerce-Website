@@ -5,6 +5,9 @@ import Footer from "./Layout/Footer";
 import Cart from "./Components/Cart/Cart";
 import { useState } from "react";
 import CartProvider from "./Components/Context/CartProvider";
+import {Route} from 'react-router-dom'
+import Welcome from "./Components/Pages/Welcome";
+import About from "./Components/Pages/About";
 
 function App() {
   const [cartClicked, setCartClicked] = useState(false);
@@ -75,13 +78,27 @@ function App() {
 
   
   return (
+    <>
+    
     <CartProvider>
-      <Header onClose = {cartDisplayHandler}></Header>
+    <Header onClose = {cartDisplayHandler}></Header>
+    <Route path='/Store'>
+       
       <PageSummary></PageSummary>
       <Store storeItems = {productsArr} ></Store>
-      <Footer></Footer>
+      
       {cartClicked&& <Cart onClose={cartDisplayHider}></Cart>}
+      </Route>
+  <Route path='/About'>
+    <About></About>
+    {cartClicked&& <Cart onClose={cartDisplayHider}></Cart>}
+
+  </Route>
+  <Footer></Footer>
       </CartProvider>
+  
+ 
+      </>
       
 
   );
