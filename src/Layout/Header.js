@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import CartContext from "../Components/Context/cart-contetxt";
 import {Link} from 'react-router-dom'
 
@@ -7,7 +7,9 @@ import './Header.css'
 
 const Header = (props)=>{
     const cartCtx = useContext(CartContext);
+    const cartCount = cartCtx.items.reduce((accumulator, curItem)=>{return accumulator + curItem.quantity},0);
 
+    
     return(
         <>
             <div className="mainHeader">
@@ -16,7 +18,7 @@ const Header = (props)=>{
                 <button className="navButtonsNavigation">Home</button>
                 <Link to='/Store' className="navButtonsNavigation">Store</Link>
                 <Link to='/About' className="navButtonsNavigation">About</Link>
-                <button className="cartButton" onClick={props.onClose}><span>Cart</span><span className="cartCount">{cartCtx.items.reduce((accumulator, curItem)=>{return accumulator + curItem.quantity},0)}</span></button>
+                <button className="cartButton" onClick={props.onClose}><span>Cart</span><span className="cartCount">{cartCount}</span></button>
  
             </nav>
             </div>
