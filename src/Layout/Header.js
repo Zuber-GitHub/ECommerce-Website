@@ -15,7 +15,7 @@ const Header = (props)=>{
             <div className="mainHeader">
             <nav className="navButtons">
                 
-                <button className="navButtonsNavigation">Home</button>
+                <Link to='/Home' className="navButtonsNavigation">Home</Link>
                 <Link to='/Store' className="navButtonsNavigation">Store</Link>
                 <Link to='/About' className="navButtonsNavigation">About</Link>
                 <button className="cartButton" onClick={props.onClose}><span>Cart</span><span className="cartCount">{cartCount}</span></button>

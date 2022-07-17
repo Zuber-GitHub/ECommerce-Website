@@ -6,8 +6,8 @@ import Cart from "./Components/Cart/Cart";
 import { useState } from "react";
 import CartProvider from "./Components/Context/CartProvider";
 import { Route } from "react-router-dom";
-import Welcome from "./Components/Pages/Welcome";
 import About from "./Components/Pages/About";
+import Home from "./Components/Pages/Home";
 
 function App() {
   const [cartClicked, setCartClicked] = useState(false);
@@ -66,18 +66,24 @@ function App() {
     <>
       <CartProvider>
         <Header onClose={cartDisplayHandler}></Header>
+        <Route path='/Home'>
+        {cartClicked && <Cart onClose={cartDisplayHider}></Cart>}
+        <PageSummary></PageSummary>
+         <div> <Home/></div>
+        </Route>
         <Route path="/Store">
           <PageSummary></PageSummary>
           <Store storeItems={productsArr}></Store>
 
           {cartClicked && <Cart onClose={cartDisplayHider}></Cart>}
-          <Footer></Footer>
         </Route>
         <Route path="/About">
-          <About></About>
+          <div>
+            {'Helper'}<About></About>
+          </div>
           {cartClicked && <Cart onClose={cartDisplayHider}></Cart>}
         </Route>
-        
+        <Footer></Footer>
       </CartProvider>
     </>
   );
