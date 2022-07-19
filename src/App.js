@@ -8,6 +8,7 @@ import CartProvider from "./Components/Context/CartProvider";
 import { Route } from "react-router-dom";
 import About from "./Components/Pages/About";
 import Home from "./Components/Pages/Home";
+import Contact from "./Components/Pages/Contact";
 
 function App() {
   const [cartClicked, setCartClicked] = useState(false);
@@ -83,6 +84,10 @@ function App() {
           </div>
           {cartClicked && <Cart onClose={cartDisplayHider}></Cart>}
         </Route>
+        <Route path='/Contact'>
+          <Contact></Contact>
+        </Route>
+    
         <Footer></Footer>
       </CartProvider>
     </>

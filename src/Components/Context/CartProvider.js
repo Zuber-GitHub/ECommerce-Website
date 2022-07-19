@@ -44,7 +44,7 @@ const CartProvider = props =>{
     const minusItemHandler = (item)=>{
         const filteredList = isItems.filter((lst)=>lst.title===item.title);
         isItems.forEach((itm)=>{
-            if(itm.quantity>0){
+            if(itm.quantity>1){
                 if(itm.title===filteredList[0].title){
                     itm.quantity-=1;
                 }
